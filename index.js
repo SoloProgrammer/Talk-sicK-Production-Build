@@ -2,19 +2,28 @@ const express = require('express')
 
 var cors = require('cors')
 
-const app = express();
+require('dotenv').config()
 
-app.use(cors());
+const connetToMongo = require('./config/db.js')
 
-const port = process.env.PORT || 8001
+const userRoutes = require('./routes/userRoutes')
+const chatRoutes = require('./routes/chatRoutes')
+const messageRoutes = require('./routes/messageRoutes')
 
-// Cyclick deplyment setup
-const path = require('path')
+connetToMongo()
 
-app.use(express.static(path.join(__dirname, './Frontend/build')))
+const port = process.env.PORT || 8002
 
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'Frontend', 'build', 'index.html'))
-});
+const app = express()
+app.use(cors())
+
+app.use(express.json())
+
+app.get('/', (req, res) => res.send('Server is running........'))
+
+app.use('/api/user', userRoutes)
+app.use('/api/chat', chatRoutes)
+app.use('/api/message', messageRoutes)
 
 app.listen(port, () => console.log(` ChatApp Backend is running on server...${port} `))
+
