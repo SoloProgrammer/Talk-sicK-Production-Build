@@ -4,16 +4,11 @@ var cors = require('cors')
 
 require('dotenv').config()
 
-// const connetToMongo = require('./config/db.js')
-
-// connetToMongo()
-
 const port = process.env.PORT || 8001
 
-const app = express()
-app.use(cors())
+const app = express();
 
-app.use(express.json())
+app.use(cors());
 
 app.listen(port, () => console.log(` ChatApp Backend is running on server...${port} `))
 
