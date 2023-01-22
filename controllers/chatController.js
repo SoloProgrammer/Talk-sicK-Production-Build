@@ -70,7 +70,7 @@ const fetchallchats = async (req, res) => {
 
         res.status(200).json({ status: true, chats })
     } catch (error) {
-        return errorRespose(res, status, error)
+        return errorRespose(res, status, {message:"Failed to load chats,Network unstable!"})
     }
 }
 const creategroup = async (req, res) => {
@@ -88,7 +88,6 @@ const creategroup = async (req, res) => {
     }
 
     if (groupAvatar) groupdata.groupAvatar = groupAvatar
-
 
     try {
         let newGroup = await Chat.create(groupdata)
