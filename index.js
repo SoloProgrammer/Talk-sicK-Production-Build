@@ -6,6 +6,8 @@ const app = express();
 
 app.use(cors());
 
+const port = process.env.PORT || 8001
+
 // Cyclick deplyment setup
 const path = require('path')
 
