@@ -10,7 +10,7 @@ const app = express();
 
 app.use(cors());
 
-app.listen(port, () => console.log(` ChatApp Backend is running on server...${port} `))
+app.listen(port, () => console.log(`Talk-o-Meter is running on server...${port} `))
 
 // Cyclick deplyment setup
 const path = require('path')
