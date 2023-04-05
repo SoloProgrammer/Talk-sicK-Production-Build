@@ -12,7 +12,7 @@ app.use(cors());
 
 app.listen(port, () => console.log(`Talk-o-Meter is running on server...${port} `))
 
-// Cyclick deplyment setup
+// Deployment Setup!
 const path = require('path')
 
 app.use(express.static(path.join(__dirname, './Frontend/build')))
