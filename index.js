@@ -10,7 +10,7 @@ const app = express();
 
 app.use(cors());
 
-app.listen(port, () => console.log(`Talk-o-Meter is running on server...${port} `));
+app.listen(port, () => console.log(`Talk-sicK is running on server...${port} `));
 
 // Deployment Setup!
 const path = require('path')
